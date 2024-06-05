@@ -13,16 +13,22 @@ let temp = document.getElementById("temp");
 let humid = document.getElementById("humid");
 let lon = document.getElementById("lon");
 let lat = document.getElementById("lat");
-cityFinder = "riyadh";
+// cityFinder = "riyadh";
 
-let geoAPI = `https://api.openweathermap.org/data/2.5/weather?q=${cityFinder}&appid=17ff28b56ae2f24feab75367990192ce`;
-let islamicAPI = `https://api.aladhan.com/v1/hijriCalendarByCity/1445/11?city=${cityFinder}&country=Saudi%20Arabia&method=2`;
+let geoAPI = `https://api.openweathermap.org/data/2.5/weather?q=riyadh&appid=17ff28b56ae2f24feab75367990192ce`;
+let islamicAPI = `https://api.aladhan.com/v1/hijriCalendarByCity/1445/11?city=riyadh&country=Saudi%20Arabia&method=2`;
 function changeCity() {
   let cityFinder = document.getElementById("cityFinder").value;
   geoAPI = `https://api.openweathermap.org/data/2.5/weather?q=${cityFinder}&appid=17ff28b56ae2f24feab75367990192ce`;
   islamicAPI = `https://api.aladhan.com/v1/hijriCalendarByCity/1445/11?city=${cityFinder}&country=Saudi%20Arabia&method=2`;
   console.log(cityFinder);
-  return geoAPI, islamicAPI;
+  getTimings()
+  fetchWeatherAPI();
+  getHijriDate()
+  getGregorianDate()
+  getDayName()
+  getTimings()
+  fetchWeatherAPI()
 }
 
 getDayName();
